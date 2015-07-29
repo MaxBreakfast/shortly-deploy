@@ -5,7 +5,7 @@ module.exports = function(grunt) {
    
    concat: {
     options: {
-      separator: ';\n',
+      separator: '',
     },
     dist: {
       src: ['public/client/*.js'],
@@ -61,6 +61,9 @@ module.exports = function(grunt) {
         }]
       }
     },
+    clean:{
+      js: ['public/client/production.js', 'public/client/production.min.js']
+    },
 
     watch: {
       scripts: {
@@ -90,6 +93,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
@@ -118,6 +122,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'clean',
     'test',
     'concat',
     'uglify'
