@@ -9,7 +9,7 @@ module.exports.userSchema = new Schema({
   username: String,
   password: String,
 });
-module.exports.urlSchema= new Schema({
+module.exports.urlSchema = new Schema({
   url: String,
   base_url: String,
   code: String,
