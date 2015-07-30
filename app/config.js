@@ -2,7 +2,7 @@
 var path = require('path');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/shortlydb');
+mongoose.connect('mongodb://MongoLab-k7:9tvN4kRBcRFWMfgwlNtI1CdsKuf2FvRCJJ6ohyzCIgg-@ds038888.mongolab.com:38888/MongoLab-k7');
 module.exports.mongoose = mongoose.connection;
 module.exports.mongoose.on('error', console.error.bind(console, 'connection error'))
 module.exports.userSchema = new Schema({
