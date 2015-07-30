@@ -1,6 +1,24 @@
-var Bookshelf = require('bookshelf');
+//var Bookshelf = require('bookshelf');
 var path = require('path');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+mongoose.connect('mongodb://localhost/shortlydb');
+module.exports.mongoose = mongoose.connection;
+module.exports.mongoose.on('error', console.error.bind(console, 'connection error'))
+module.exports.userSchema = new Schema({
+  username: String,
+  password: String,
+});
+module.exports.urlSchema= new Schema({
+  url: String,
+  base_url: String,
+  code: String,
+  title: String,
+  visits: Number,
+});
+  
 
+/*
 var db = Bookshelf.initialize({
   client: 'sqlite3',
   connection: {
@@ -41,5 +59,4 @@ db.knex.schema.hasTable('users').then(function(exists) {
     });
   }
 });
-
-module.exports = db;
+*/
